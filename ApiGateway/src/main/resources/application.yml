@@ -1,0 +1,29 @@
+server:
+  port: 1010
+ 
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+           - id: Product-Service
+             uri: lb://Product-Service
+             predicates:
+              - Path=/api/products/**
+ 
+           - id: Batch-Service
+             uri: lb://Batch-Service
+             predicates:
+              - Path=/api/batches/**
+
+           - id: DispenseReturnLog-Service
+             uri: lb://DispenseReturnLog-Service
+             predicates:
+              - Path=/api/dispenses/**,/api/consumption-logs/**,Path=/api/returns/**		
+           - id: Recall-Service
+             uri: lb://Recall-Service
+             predicates:
+              - Path=/api/recalls/**
