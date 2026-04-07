@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: RECONCILIATION-AND-STOCKCOUNT-SERVICE
+  datasource:
+    url: jdbc:mysql://localhost:3306/pharmashelf
+    username: root
+    password: root@1964
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
+server:
+  port: 2070
+ 
+ 
